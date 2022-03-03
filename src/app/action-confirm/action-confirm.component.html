@@ -1,1 +1,12 @@
-<p>action-confirm works!</p>
+<div class="imgBannerDiv">
+  <img src="assets/img/okta_japan_white_small.png" class="imgBanner">
+</div>
+<div class="confirmMessage">
+  本当に設定されているすべてのMFAをリセットしてよろしいでしょうか?
+</div>
+<div class="btnDiv">
+  <a class="btn btn-reg-danger btn-round" class="btn btn-danger btn-round btnAction" id="logout"
+    (click)="startMFAReset()">MFAをリセットする</a>
+  <a class="btn btn-reg-danger btn-round" class="btn btn-danger btn-round btnAction"
+    (click)="resetCancel()">キャンセル</a>
+</div>

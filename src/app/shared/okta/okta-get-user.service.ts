@@ -22,6 +22,7 @@ export class OktaGetUserService {
   bolCIAM;
   bolWorkforce;
   strLogin;
+  uriFactorReset;
 
   public authService = new OktaAuth(this.OktaSDKAuthService.config);
 
@@ -55,10 +56,10 @@ export class OktaGetUserService {
     this.bolCIAM = this.strThisUserInfo.profile.ciam;
     this.bolWorkforce = this.strThisUserInfo.profile.workforce;
     this.strLogin = this.strThisUserInfo.profile.login;
-  
+    this.uriFactorReset = this.strThisUserInfo._links.resetFactors.href
 
     // this.OktaSDKAuthService.OktaSDKAuthClient.signOut()
-    
+
   }
 
   async GetUserInfo() {
