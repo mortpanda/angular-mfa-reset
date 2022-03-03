@@ -24,29 +24,29 @@ export class LandingComponent implements OnInit {
   async ngOnInit() {
     this.OktaWidgetService.CloseWidget();
 
-    this.strUserSession = await this.authService.session.exists()
-      .then(function (exists) {
-        if (exists) {
-          // logged in
-          console.log('Session to Okta : ' + exists);
-          return exists
-        } else {
-          // not logged in
-          console.log('Session to Okta : ' + exists);
-          return exists
-        }
-      });
-    switch (this.strUserSession) {
-      case false:
+    // this.strUserSession = await this.authService.session.exists()
+    //   .then(function (exists) {
+    //     if (exists) {
+    //       // logged in
+    //       console.log('Session to Okta : ' + exists);
+    //       return exists
+    //     } else {
+    //       // not logged in
+    //       console.log('Session to Okta : ' + exists);
+    //       return exists
+    //     }
+    //   });
+    // switch (this.strUserSession) {
+    //   case false:
         this.OktaWidgetService.login();
-        break;
+    //     break;
 
-      case true:
-        //Forcing the user to enter their credentials, so do nothing if there is a session to Okta  
-        // window.location.replace(this.OktaSDKAuthService.config.redirectUri);
-        break;
+    //   case true:
+    //     //Forcing the user to enter their credentials, so do nothing if there is a session to Okta  
+    //     // window.location.replace(this.OktaSDKAuthService.config.redirectUri);
+    //     break;
 
-    }
+    // }
   }
 
 }

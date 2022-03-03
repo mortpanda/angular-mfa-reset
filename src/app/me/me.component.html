@@ -1,0 +1,57 @@
+<div class="wrapper">
+  <div class="page-header section-dark" style="background-image: url('assets/img/lilac_back.png')">
+
+    <div class="mainContainer" fxLayout="columns wrap" fxLayoutAlign="center center">
+
+      <div class="profileItem">
+
+        <div class="subContainer" fxLayout="row wrap" fxLayoutAlign="center center">
+          <div class="subItem">
+            <a class="itemHead">ユーザー情報</a>
+          </div>
+          <div class="itemContainer" fxLayout="row wrap" fxLayoutAlign="center center">
+            <div class="imgDiv">
+              <img src="assets/img/user_icon.png" class="imgUser">
+            </div>
+            <div class="userFullname">
+              <a>{{ this.OktaGetUserService.strFullName}}</a>
+            </div>
+            <div class="userLogin">
+              <a>{{ this.OktaGetUserService.strLogin}}</a>
+            </div>
+            <div class="locationContainer" fxLayout="columns wrap" fxLayoutAlign="left">
+              <div class="locationDiv">
+                <img src="assets/img/office_white.png" class="imgUser imgLocation">
+              </div>
+              <div><a>{{ this.OktaGetUserService.strStreeAddress}}</a> <br />
+                <a>{{ this.OktaGetUserService.strLocality}}</a> <br />
+                <a>{{ this.OktaGetUserService.strRegion}}</a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      <div class="profileItem">
+        <div class="subContainer" fxLayout="row wrap" fxLayoutAlign="center center">
+          <div class="subItem">
+            <a class="itemHead">ACTION</a>
+          </div>
+          <div class="itemContainer" fxLayout="row wrap" fxLayoutAlign="center center">
+            <div class="imgDiv">
+              <img src="assets/img/okta_initiate_blue.png" class="imgUser">
+            </div>
+            <div class="imgDiv ">
+              <a class="btn btn-reg-danger btn-round" class="btn btn-danger btn-round btnAction" id="logout" (click)="Logout()">MFAをリセットする</a>
+            </div>
+          </div>
+        </div>
+
+
+      </div>
+
+    </div>
+
+  </div>
+  <app-footer></app-footer>
