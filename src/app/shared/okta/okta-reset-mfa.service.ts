@@ -27,12 +27,16 @@ strMFAResetStatus;
       },
 
     })
+    
       .then(response => response.json())
     this.strMFAResetStatus = await thisFetch;
     // console.log('Getting me using service')
-    console.log(this.strMFAResetStatus);
+    // console.log(this.strMFAResetStatus);
+    // console.log(this.strMFAResetStatus.status);
+    
     
   }
 
 
 }
+
