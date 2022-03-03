@@ -5,8 +5,9 @@ import { OktaAuth } from '@okta/okta-auth-js'
 import { OktaConfigService } from "app/shared/okta/okta-config.service";
 import { OktaGetTokenService } from 'app/shared/okta/okta-get-token.service';
 import { FlexLayoutModule } from '@angular/flex-layout';
-import {OktaGetUserService} from 'app/shared/okta/okta-get-user.service';
-
+import { OktaGetUserService } from 'app/shared/okta/okta-get-user.service';
+import { MatDialog, MatDialogConfig } from '@angular/material/dialog';
+import { ActionConfirmComponent } from 'app/action-confirm/action-confirm.component';
 
 @Component({
   selector: 'app-me',
@@ -25,6 +26,8 @@ export class MeComponent implements OnInit {
     public OktaSDKAuthService: OktaSDKAuthService,
     public OktaConfigService: OktaConfigService,
     public OktaGetUserService: OktaGetUserService,
+    public _matdialog: MatDialog,
+    public ActionConfirmComponent: ActionConfirmComponent,
   ) { }
 
   async ngOnInit() {
@@ -45,9 +48,19 @@ export class MeComponent implements OnInit {
         this.OktaSDKAuthService.OktaSDKAuthClient.signOut();
       case true:
         await this.OktaGetUserService.GetUserInfo();
-        // await this.GetGeolocationService.GetGeo();
+      // await this.GetGeolocationService.GetGeo();
 
     }
+  }
+
+
+  startMFAReset(){
+    const dialogUC = new MatDialogConfig();
+    dialogUC.disableClose = true;
+    dialogUC.id = "WidgetComponent";
+    dialogUC.height = "auto";
+    dialogUC.width = "auto";
+    const modalDialog = this._matdialog.open(ActionConfirmComponent, dialogUC);
   }
 
 }

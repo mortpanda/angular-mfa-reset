@@ -105,6 +105,7 @@ import { ActionConfirmComponent } from './action-confirm/action-confirm.componen
   ],
   providers: [
     OktaSDKAuthService,    
+    ActionConfirmComponent
   ], 
 
   
