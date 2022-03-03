@@ -20,3 +20,11 @@ body {
   text-align: center!important; 
   /* align-items: center!important; */
   }
+
+  .mainContainer{
+    margin-top:20px!important;
+  }
+
+  .imgItem{
+    margin-top: 20px!important;
+  }
