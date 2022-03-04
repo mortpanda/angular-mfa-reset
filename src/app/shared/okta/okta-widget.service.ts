@@ -157,7 +157,7 @@ async ReconfigureMFA() {
     oktaSignIn.remove();
     const idToken = tokens.idToken;
     console.log("Hello, " + idToken.claims.email + "! You just logged in! :)");
-    window.location.replace(OktaBaseURI + 'complete');
+    window.location.replace(OktaPostlogoutURI + 'complete');
     return true;
 
   }).catch(function (err) {
