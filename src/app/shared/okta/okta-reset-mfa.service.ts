@@ -29,7 +29,7 @@ strMFAResetStatus;
     })
       .then(response => response.json())
     this.strMFAResetStatus = await thisFetch;
-    window.location.replace(this.OktaConfigService.strPostLogoutURL + '/reconfigure'); 
+    window.location.replace(this.OktaConfigService.strPostLogoutURL + '/complete'); 
     
     
   }

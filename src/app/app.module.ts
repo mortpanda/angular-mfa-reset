@@ -47,8 +47,6 @@ import { FlexLayoutModule } from '@angular/flex-layout';
 import { AuthNoticeComponent } from './auth-notice/auth-notice.component';
 import { MeComponent } from './me/me.component';
 import { ActionConfirmComponent } from './action-confirm/action-confirm.component';
-import { ConfigMfaBasepageComponent } from './config-mfa-basepage/config-mfa-basepage.component';
-import { ConfigMfaModalComponent } from './config-mfa-modal/config-mfa-modal.component';
 import { CompleteComponent } from './complete/complete.component';
 
 @NgModule({
@@ -62,10 +60,7 @@ import { CompleteComponent } from './complete/complete.component';
     AuthNoticeComponent,
     MeComponent,
     ActionConfirmComponent,
-    ConfigMfaBasepageComponent,
-    ConfigMfaModalComponent,
     CompleteComponent,
-    //AuthNoticeComponent,
    
     
   ],
@@ -112,7 +107,6 @@ import { CompleteComponent } from './complete/complete.component';
   providers: [
     OktaSDKAuthService,    
     ActionConfirmComponent,
-    ConfigMfaModalComponent
   ], 
 
   
