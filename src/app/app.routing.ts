@@ -2,24 +2,19 @@ import { NgModule } from '@angular/core';
 import { CommonModule, } from '@angular/common';
 import { BrowserModule } from '@angular/platform-browser';
 import { Routes, RouterModule } from '@angular/router';
-import {LandingComponent} from 'app/landing/landing.component';
-import {MeComponent} from 'app/me/me.component';
-
-
+import { LandingComponent } from 'app/landing/landing.component';
+import { MeComponent } from 'app/me/me.component';
+import { ConfigMfaBasepageComponent } from './config-mfa-basepage/config-mfa-basepage.component';
+import { CompleteComponent } from './complete/complete.component';
 
 
 const routes: Routes = [
   { path: '', redirectTo: 'home', pathMatch: 'full' },
   { path: 'home', component: LandingComponent },
   { path: 'me', component: MeComponent },
-  
-  // { path: 'profilev2', component: Profilev2Component },
-  // { path: 'store', component: SwagstoreComponent },
-  // { path: 'checkout', component: CheckoutComponent },
-  // { path: 'save', component: SaveModalComponent },
-  //{ path: 'signup',           component: SignupComponent },
-  //{ path: 'landing',          component: LandingComponent },
-  // { path: 'nucleoicons',      component: NucleoiconsComponent }
+  { path: 'reconfigure', component: ConfigMfaBasepageComponent },
+  { path: 'complete', component: CompleteComponent },
+
 ];
 
 @NgModule({

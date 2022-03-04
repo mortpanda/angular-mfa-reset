@@ -116,5 +116,57 @@ CloseWidget() {
 
 }
 
+async ReconfigureMFA() {
+  const OktaClientID = this.OktaConfig.strClientID;
+  const OktaBaseURI = this.OktaConfig.strBaseURI;
+  const OktaLang = this.OktaConfig.strLang;  
+  const OktaRedirect = this.OktaConfig.strRedirectURL;
+  const OktaBrand = this.OktaConfig.strBrand;
+  const OktaPostlogoutURI = this.OktaConfig.strPostLogoutURL;
+  const OktaIssuer = this.OktaConfig.strIssuer;
+  const OktaScope = this.OktaConfig.strScope;
+  const OktaResType = this.OktaConfig.strResponseType;
+  const OktaResMode = this.OktaConfig.strResponseMode;
+  const OktaWidgetLogo = this.OktaConfig.strLogo;
+  var oktaSignIn = new OktaSignIn({
+    logo: OktaWidgetLogo,
+    clientId: OktaClientID,
+    baseUrl: OktaBaseURI,
+    language: OktaLang,
+    redirectUri: OktaRedirect,
+    colors: {
+      brand: OktaBrand,
+    },
+    postLogoutRedirectUri: OktaPostlogoutURI,
+    authParams: {
+      issuer: OktaIssuer,
+      responseMode: 'fragment',
+      responseType: OktaResType,
+      scopes: OktaScope,
+      pkce: false,
+      prompt: OktaResMode
+    },
+    
+  });
+  console.log(OktaScope)
+  var myMFADone = await oktaSignIn.showSignInToGetTokens({
+    el: '#okta-signin-container'
+  }).then(function (tokens) {
+
+    oktaSignIn.authClient.tokenManager.setTokens(tokens);
+    oktaSignIn.remove();
+    const idToken = tokens.idToken;
+    console.log("Hello, " + idToken.claims.email + "! You just logged in! :)");
+    window.location.replace(OktaBaseURI + 'complete');
+    return true;
+
+  }).catch(function (err) {
+    console.error(err);
+    return false;
+  });
+  //console.log('MFA Status : ' + myMFADone)
+  this.strMFAStatus = myMFADone;
+}
+
 }
 
